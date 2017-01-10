@@ -1,0 +1,101 @@
+<div >
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+        <div class="form-content">
+
+          <div class="form-group">
+            <input type="text" name="compnos" class="form-control input-underline input-lg" id="" placeholder="compnos" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="naturecode" class="form-control input-underline input-lg" id="" placeholder="naturecode" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="incident_type_description" class="form-control input-underline input-lg" id="" placeholder="incident_type_description" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="main_crimecode" class="form-control input-underline input-lg" id="" placeholder="main_crimecode" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="reptdistrict" class="form-control input-underline input-lg" id="" placeholder="reptdistrict" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="number" name="reportingarea" class="form-control input-underline input-lg" id="" placeholder="reportingarea" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="fromdate" class="form-control input-underline input-lg" id="" placeholder="fromdate" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="weapontype" class="form-control input-underline input-lg" id="" placeholder="weapontype" ngModel>
+          </div>
+
+          <div class="form-group">
+            <label for="sel1" name="shooting">Select shooting:</label>
+            <select class="form-control" name="shooting" id="sel1">
+              <option value="true">true</option>
+              <option value="false">false</option>
+            </select>
+          </div> 
+
+          <div class="form-group">
+            <label for="sel2" name="domestic">Select domestic:</label>
+            <select class="form-control" id="sel2" name="domestic" ngModel>
+              <option value="true">true</option>
+              <option value="false">false</option>
+            </select>
+          </div> 
+          
+
+          <div class="form-group">
+            <input type="text" name="shift" class="form-control input-underline input-lg" id="" placeholder="shift" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="number" name="year" class="form-control input-underline input-lg" id="" placeholder="year" ngModel>
+          </div>
+
+          <div class="form-group">
+            <input type="number" name="month" class="form-control input-underline input-lg" id="" placeholder="month" ngModel>
+          </div> 
+
+           <div class="form-group">
+            <input type="text" name="day_week" class="form-control input-underline input-lg" id="" placeholder="day_week" ngModel>
+          </div> 
+
+           <div class="form-group">
+            <input type="text" name="ucrpart" class="form-control input-underline input-lg" id="" placeholder="ucrpart" ngModel>
+          </div> 
+
+           <div class="form-group">
+            <input type="number" name="x" class="form-control input-underline input-lg" id="" placeholder="X" ngModel>
+          </div> 
+
+           <div class="form-group">
+            <input type="number" name="y" class="form-control input-underline input-lg" id="" placeholder="Y" ngModel>
+          </div> 
+
+           <div class="form-group">
+            <input type="text" name="streetname" class="form-control input-underline input-lg" id="" placeholder="streetname" ngModel>
+          </div> 
+
+           <div class="form-group">
+            <input type="text" name="xstreetname" class="form-control input-underline input-lg" id="" placeholder="xstreetname" ngModel>
+          </div> 
+         
+          <div class="form-group">
+            <input type="text" name="location" class="form-control input-underline input-lg" id="" placeholder="location" ngModel>
+          </div>         
+         
+        </div>
+          <button type="submit" class="btn btn-lg btn-block btn-primary">Valider</button>
+      </form>
+    </div>  
+  </div>
+</div>

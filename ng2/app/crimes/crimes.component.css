@@ -1,0 +1,16 @@
+pagination-controls {
+	font-size: 10px;
+}
+body {
+	font-size: 10px;
+}
+.sebm-google-map-container {
+  height: 300px;
+}
+.row.panelcrimes,
+.panelmapcrimes {
+    margin-top: 3%;
+}
+th, td {
+	text-align: center;
+}

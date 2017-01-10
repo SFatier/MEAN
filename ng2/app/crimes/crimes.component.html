@@ -1,0 +1,87 @@
+<div class="panelmapcrimes">
+  <sebm-google-map #myMap [latitude]="lat" [longitude]="lng" [zoom]="11">
+    <sebm-google-map-marker *ngFor="let mark of marks" [latitude]="mark[0]" [longitude]="mark[1]"></sebm-google-map-marker>
+  </sebm-google-map>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" id="bs-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Large modal</h4>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="modalData">
+          <p>{{modalData.compnos}}</p>
+          <p>{{modalData.naturecode}}</p>
+          <p>{{modalData.main_crimecode}}</p>
+          <p>{{modalData.reptdistrict}}</p>
+          <p>{{modalData.fromdate}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row panelcrimes">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading panel">
+        <h4><i class="fa fa-id-card" aria-hidden="true"></i> Boston referenced crimes</h4>
+      </div>
+      <!-- /.panel-heading -->
+      <div *ngIf="asyncData" class="panel-body">
+        <div class="table-responsive">
+          <div class="row">
+            
+              <form #form="ngForm" (ngSubmit)="getPage(1, itemsTotal)">
+                <div class="col-md-3">
+                  <div class="titlecrimes">Nombre de crimes à afficher : </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="input-group">
+                    <input class="form-control" type="number" name="page" [(ngModel)]="itemsTotal"><button type="submit" class="btn btn-default">Go !</button>
+                  </div>
+                </div>
+                <!--<div class="col-md-4">
+                  <div class="titlecrimes">{{now}}</div>
+                </div>-->
+              </form>
+          </div>
+          <table class="table table-condensed table-striped table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>compnos</th>
+                <th>naturecode</th>
+                <th>main_crimecode</th>
+                <th>reptdistrict</th>
+                <th>fromdate</th>
+                <th><i class="fa fa-cog" aria-hidden="true"></i> Parameters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of asyncData | async | paginate: { id: 'server', itemsPerPage: itemTotal, currentPage: p, totalItems: total }" (click)="editModal(item, myMap)" (click)="lgModal.show();">
+                <td>{{item.compnos}}</td>
+                <td>{{item.naturecode}}</td>
+                <td>{{item.main_crimecode}}</td>
+                <td>{{item.reptdistrict}}</td>
+                <td>{{item.fromdate}}</td>
+                <td><a class="btn btn-default" (click)="editModal(item)" (click)="editionModal.show();"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                <a class="btn btn-danger" (click)="deleteFunction(item)" ><i class="fa fa-trash" aria-hidden="true"></i> Remove</a></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <div class="has-text-centered">
+                <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+                <pagination-controls (pageChange)="getPage($event, itemTotal)" id="server"></pagination-controls>
+              </div>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
